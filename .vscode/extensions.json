@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "pflannery.vscode-versionlens",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+  ],
+  "unwantedRecommendations": []
+}

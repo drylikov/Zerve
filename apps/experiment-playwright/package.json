@@ -1,0 +1,12 @@
+{
+  "name": "experiment-playwright",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "playwright": "^1.18.1"
+  }
+}

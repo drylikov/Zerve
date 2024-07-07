@@ -1,0 +1,22 @@
+{
+  "name": "@zerve/native",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "config": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@zerve/core": "*",
+    "buffer": "^6.0.3"
+  },
+  "peerDependencies": {
+    "expo-crypto": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-mmkv": "^2.1.0"
+  }
+}

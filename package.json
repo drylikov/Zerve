@@ -1,0 +1,59 @@
+{
+  "name": "@zerve/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "concurrently \"yarn workspace z-server dev\" \"yarn workspace z-web dev\"",
+    "dev:mobile": "watchman watch-del-all && yarn workspace z-mobile start",
+    "dev:ios": "yarn workspace z-mobile prebuild && open apps/mobile/ios/Zerve.xcworkspace",
+    "build:ios": "yarn workspace z-mobile eas build --platform=ios --profile=production",
+    "build:ios:internal": "yarn workspace z-mobile eas build --platform=ios --profile=internal",
+    "build:android:internal": "yarn workspace z-mobile eas build --platform=android --profile=internal",
+    "build:android:dev": "yarn workspace z-mobile eas build --platform=android --profile=development",
+    "build:android": "yarn workspace z-mobile eas build --platform=android --profile=production",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "restart": "pm2 restart ecosystem.config.js"
+  },
+  "dependencies": {
+    "react-native": "0.64.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "turbo": {
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "dist/**",
+          ".next/**"
+        ]
+      },
+      "lint": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  }
+}

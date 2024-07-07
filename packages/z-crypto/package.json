@@ -1,0 +1,16 @@
+{
+  "name": "@zerve/crypto",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "devDependencies": {
+    "@types/json-stable-stringify": "^1.0.33",
+    "config": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "json-stable-stringify": "^1.0.1",
+    "@zerve/core": "*"
+  }
+}

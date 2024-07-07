@@ -1,0 +1,51 @@
+{
+  "apps": {
+    "http": {
+      "servers": {
+        "srv0": {
+          "listen": [":443"],
+          "routes": [
+            {
+              "match": [{ "host": ["hades.main.zerve.dev"] }],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [{ "dial": "localhost:9988" }]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [{ "host": ["dev.zerve.dev"] }],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [{ "dial": "localhost:9988" }]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

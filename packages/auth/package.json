@@ -1,0 +1,13 @@
+{
+  "name": "@zerve/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "dependencies": {
+    "@zerve/core": "*",
+    "@zerve/system-files": "*",
+    "@zerve/message-sms-twilio": "*",
+    "@zerve/message-email-sendgrid": "*"
+  }
+}
